@@ -36,12 +36,12 @@
     h1 span { position: relative; z-index: 0; white-space: nowrap; }
     h1 span::after { position: absolute; z-index: -1; right: -.04em; bottom: .04em; left: -.035em; height: .31em; background: var(--lime); content: ""; }
     .intro { max-width: 520px; margin: 24px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
-    .prompt-card { margin-top: 48px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--soft); }
+    .prompt-card { margin-top: 34px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--soft); }
     .card-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper); }
     .card-head strong { font-size: 11px; font-weight: 650; letter-spacing: .13em; text-transform: uppercase; }
     .card-head span { color: var(--muted); font-size: 12px; }
     pre { margin: 0; padding: 26px 28px 30px; color: #282a22; font: 14px/1.78 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
-    .action-row { display: flex; align-items: center; gap: 16px; margin-top: 22px; }
+    .action-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 30px; }
     button { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 11px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--lime); color: var(--ink); font: inherit; font-size: 12px; font-weight: 750; letter-spacing: .075em; cursor: pointer; transition: transform .18s ease, background .18s ease; }
     button:hover { transform: translateY(-2px); background: #ddf52c; }
     button:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
@@ -76,6 +76,15 @@
       <p class="eyebrow">Для интерьерных 3D-рендеров</p>
       <h1>Замена <span>материала</span><br>на рендере</h1>
       <p class="intro">Универсальный промт, который помогает заменить материал на выбранном объекте и сохранить весь остальной кадр без изменений.</p>
+
+      <div class="action-row">
+        <button id="copy" type="button" aria-label="Скопировать весь промт">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.7"/></svg>
+          СКОПИРОВАТЬ ПРОМТ
+        </button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
+      <p class="hint">Нажмите, чтобы скопировать весь текст. Перед использованием заполните два поля в квадратных скобках.</p>
 
       <section class="prompt-card" aria-labelledby="prompt-label">
         <div class="card-head">
@@ -114,14 +123,6 @@
 
 Меняй только указанный материал на указанном объекте. Изображение №2 используй как референс материала. Все остальное сохрани без изменений относительно изображения №1.</pre>
       </section>
-      <div class="action-row">
-        <button id="copy" type="button" aria-label="Скопировать весь промт">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.7"/></svg>
-          СКОПИРОВАТЬ ПРОМТ
-        </button>
-        <span id="status" role="status" aria-live="polite"></span>
-      </div>
-      <p class="hint">После копирования вставьте текст в нейросеть и заполните два поля в квадратных скобках.</p>
     </main>
     <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
   </div>
