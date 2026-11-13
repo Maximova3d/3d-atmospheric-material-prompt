@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3f00ff">
+  <meta name="description" content="Промт для создания клоуз-апов по общему ракурсу.">
+  <title>Промт для создания клоуз-апов по общему ракурсу — Bazhena Maximova</title>
+  <style>
+    :root { color-scheme: light; --ink:#171813; --muted:#72746c; --accent:#3f00ff; --paper:#fff; --line:#e9eae4; --soft:#f8f9f5; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    .page { width:min(100% - 40px,760px); margin:0 auto; padding:14px 0 28px; }
+    .action-row { display:flex; align-items:center; justify-content:center; gap:16px; margin:0 auto; }
+    button { display:inline-flex; min-height:54px; align-items:center; justify-content:center; gap:11px; padding:0 22px; border:0; border-radius:999px; background:var(--accent); color:#fff; font:inherit; font-size:12px; font-weight:750; letter-spacing:.075em; cursor:pointer; transition:transform .18s ease,background .18s ease; }
+    button:hover { transform:translateY(-2px); background:#3300d6; }
+    button:focus-visible { outline:3px solid var(--ink); outline-offset:4px; }
+    button svg { width:17px; height:17px; }
+    #status { min-height:1.4em; color:var(--muted); font-size:13px; }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:22px; }
+    .brand { font-size:12px; font-weight:650; letter-spacing:.14em; text-transform:uppercase; }
+    .tag { display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .tag::before { content:""; width:8px; height:8px; background:var(--accent); border-radius:50%; }
+    main { padding:clamp(42px,7vw,72px) 0 72px; }
+    .eyebrow { margin:0 0 20px; color:var(--muted); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { max-width:700px; margin:0; font-size:clamp(38px,7vw,68px); font-weight:560; letter-spacing:-.065em; line-height:.99; }
+    h1 span { position:relative; z-index:0; white-space:nowrap; }
+    h1 span::after { position:absolute; z-index:-1; right:-.04em; bottom:.04em; left:-.035em; height:.31em; background:var(--accent); content:""; }
+    .intro { max-width:620px; margin:24px 0 0; color:var(--muted); font-size:16px; line-height:1.65; }
+    .subintro { margin-top:10px; }
+    .prompt-card { margin-top:34px; overflow:hidden; border:1px solid var(--line); border-radius:18px; background:var(--soft); }
+    .card-head { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--line); background:var(--paper); }
+    .card-head strong { font-size:11px; font-weight:650; letter-spacing:.13em; text-transform:uppercase; }
+    .card-head span { color:var(--muted); font-size:12px; }
+    pre { margin:0; padding:26px 28px 30px; color:#282a22; font:14px/1.78 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
+    footer { display:flex; justify-content:space-between; gap:16px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.06em; }
+    @media(max-width:560px) {
+      .page { width:min(100% - 32px,760px); padding-top:10px; }
+      .brand { font-size:10px; } .tag { font-size:9px; }
+      main { padding-top:42px; padding-bottom:56px; }
+      .intro { font-size:15px; }
+      .prompt-card { margin-top:34px; border-radius:14px; }
+      .card-head { padding:15px 16px; }
+      pre { padding:20px 17px 23px; font-size:12px; line-height:1.72; }
+      .action-row { align-items:center; flex-direction:column; gap:11px; }
+      button { width:100%; max-width:360px; }
+      footer { font-size:9px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="action-row">
+      <button id="copy" type="button" aria-label="Скопировать промт">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.7"/></svg>
+        СКОПИРОВАТЬ ПРОМТ
+      </button>
+      <span id="status" role="status" aria-live="polite"></span>
+    </div>
+    <header class="topline"><div class="brand">Bazhena Maximova</div><div class="tag">Detail shot prompt</div></header>
+    <main>
+      <p class="eyebrow">Для интерьерных 3D-рендеров</p>
+      <h1>Промт для создания<br><span>клоуз-апов</span><br>по общему ракурсу</h1>
+      <p class="intro">Для создания генераций я использую бот Syntx Ai (Nana Banana Pro) или GPT 🫰🏻</p>
+      <p class="intro subintro">При каждом запросе получаются разные кадры. Также в конце промта можете дописывать нюансы, например «экстремально близкий ракурс на столик» и т.д.</p>
+      <section class="prompt-card" aria-labelledby="prompt-label">
+        <div class="card-head"><strong id="prompt-label">Готовый промт</strong><span>Для Syntx Ai или GPT</span></div>
+        <pre id="prompt">INPUT IMAGE IS THE BASE — USE IT AS THE ONLY SOURCE
+DO NOT change geometry
+DO NOT change perspective
+DO NOT reconstruct the scene
+DO NOT add or remove objects
+
+GOAL:
+generate ONE single detail shot by cropping into the existing image
+each time focus on a DIFFERENT object already visible in the frame
+
+IMPORTANT:
+output must be a single image only
+no collage, no grid, no multiple frames
+
+STRICT:
+this is a crop, not a new render
+keep original perspective exactly the same
+
+— SUBJECT SELECTION —
+choose one clearly visible object from the image
+focus only on objects that already exist
+(randomize object selection each generation)
+avoid repeating the same subject
+examples:
+chair part
+table edge
+fabric
+lamp detail
+wall texture
+decor
+
+— FRAMING —
+crop into the original image
+medium close-up (not extreme macro)
+keep some surrounding context
+no new angles, no camera reposition
+
+— COMPOSITION —
+refine composition ONLY by cropping
+use rule of thirds
+balanced framing
+clear focal point
+
+— DEPTH OF FIELD —
+very subtle depth of field only
+do NOT blur heavily
+keep most details readable
+
+— TEXTURE —
+enhance material realism slightly
+add subtle micro-details (dust, tiny imperfections)
+do not exaggerate
+
+— LIGHT —
+keep original lighting exactly
+no new light sources
+
+— FILM & OPTICS —
+subtle film grain
+very light chromatic aberration
+minimal lens softness
+no heavy effects
+
+STRICT RULES:
+NO geometry distortion
+NO perspective change
+NO hallucinated details
+NO new objects
+ONLY crop + enhancement
+
+RESULT:
+single realistic detail shot
+accurate to the original image
+clean, natural, believable</pre>
+      </section>
+    </main>
+    <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
+  </div>
+  <script>
+    const button = document.getElementById('copy');
+    const promptText = document.getElementById('prompt').textContent.trim();
+    const status = document.getElementById('status');
+    button.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(promptText); status.textContent = 'Промт скопирован'; }
+      catch {
+        const field = document.createElement('textarea'); field.value = promptText; field.style.position = 'fixed'; field.style.opacity = '0'; document.body.appendChild(field); field.select();
+        const copied = document.execCommand('copy'); field.remove(); status.textContent = copied ? 'Промт скопирован' : 'Выделите текст промта и скопируйте его вручную';
+      }
+      window.setTimeout(() => { status.textContent = ''; }, 2600);
+    });
+  </script>
+</body>
+</html>
