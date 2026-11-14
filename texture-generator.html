@@ -44,9 +44,17 @@
     .drive-link { min-height:40px; padding:0 15px; font-size:11px; letter-spacing:.015em; }
     .drive-link.file { background:#fff; border:1px solid var(--line); font-weight:600; }
     .drive-link.file:hover { background:var(--soft); }
+    .gallery-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .gallery-count { flex:none; padding:7px 10px; border-radius:999px; background:var(--soft); color:var(--muted); font-size:10px; white-space:nowrap; }
+    .material-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .material-card { min-width:0; margin:0; overflow:hidden; border:1px solid var(--line); border-radius:13px; background:var(--soft); }
+    .material-card img { display:block; width:100%; height:190px; object-fit:cover; background:#f0f1ec; }
+    .material-card.reference img { height:250px; }
+    .material-card.setup img { object-fit:contain; background:#f1f2ed; }
+    .material-card figcaption { min-height:42px; padding:12px; color:var(--muted); font-size:11px; line-height:1.45; }
     .note { margin-top:18px; padding:16px 18px; border-left:3px solid var(--accent); background:var(--soft); color:var(--muted); font-size:13px; line-height:1.65; }
     footer { display:flex; justify-content:space-between; gap:16px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.06em; }
-    @media(max-width:720px) { .steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:720px) { .steps { grid-template-columns:repeat(2,minmax(0,1fr)); } .material-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .material-card img { height:165px; } .material-card.reference img { height:205px; } }
     @media(max-width:520px) {
       .page { width:min(100% - 32px,900px); padding-top:10px; }
       .brand { font-size:10px; } .tag { font-size:9px; }
@@ -58,6 +66,8 @@
       .steps { gap:9px; }
       .step { min-height:0; padding:15px; }
       .resource-group { padding:16px; }
+      .material-grid { gap:8px; } .material-card img { height:130px; } .material-card.reference img { height:165px; } .material-card figcaption { padding:10px; font-size:10px; }
+      .gallery-head { gap:8px; } .gallery-count { font-size:9px; }
       .drive-link { flex:1 1 auto; }
       footer { font-size:9px; }
     }
@@ -90,48 +100,44 @@
       </section>
 
       <section class="section" id="materials" aria-labelledby="materials-title">
-        <div class="section-title"><h2 id="materials-title">Инструкции и примеры</h2><p>Все материалы открываются по кнопкам</p></div>
+        <div class="section-title"><h2 id="materials-title">Инструкция и примеры</h2><p>Карты можно рассмотреть прямо здесь</p></div>
 
         <article class="resource-group">
           <h3>Настройка генератора</h3>
-          <p>Короткая инструкция по созданию проекта и работе с референсами.</p>
+          <p>Инструкция по созданию проекта, работе с референсами и генерации набора карт.</p>
           <div class="links">
-            <a class="drive-link" href="https://docs.google.com/document/d/19xCJnbzRmqstiyfLEF7E3cli2_oQebVp/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">КАК НАСТРОИТЬ ГЕНЕРАТОР ТЕКСТУР В GPT ↗</a>
+            <a class="drive-link" href="https://docs.google.com/document/d/19xCJnbzRmqstiyfLEF7E3cli2_oQebVp/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">ИНСТРУКЦИЯ ПО НАСТРОЙКЕ GPT ↗</a>
             <a class="drive-link file" href="https://docs.google.com/document/d/1ilhcYYK1CxKkTn4ZbaeltszuxnVt2VNL/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">ПРОМТ-ИНСТРУКЦИЯ К ПРОЕКТУ ↗</a>
             <a class="drive-link file" href="https://drive.google.com/file/d/1yLXscyz5gTvpYvBMJ0NIwRw3hFyh3xff/view?usp=drivesdk" target="_blank" rel="noopener">КАК Я ОПЛАЧИВАЮ ЗАРУБЕЖНЫЕ СЕРВИСЫ · PDF ↗</a>
           </div>
         </article>
 
-        <article class="resource-group">
-          <h3>Примеры: мрамор и плитка</h3>
-          <p>Референсы и карты из папки «Другие примеры». Названия карт оставлены как на Google Drive.</p>
-          <div class="links">
-            <a class="drive-link" href="https://drive.google.com/drive/folders/18HTvsALzzVHAsSWoCWtYpC5NKVUmVO0X" target="_blank" rel="noopener">ОТКРЫТЬ ПАПКУ «ДРУГИЕ ПРИМЕРЫ» ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1qOy4WiqqdRJ1MozZIT6r62RwYJIqSLHS/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС · МРАМОР.jpg ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1o6teCKhua5VK_kUBQF5M9Qxoqo8yM8wr/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС · ПЛИТКА.jpg ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1CndZWaVQfiRpugiTMuoZiEwLvpmDDeol/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1eoH7VGMemTuDiuNZ5K5jzXBFdf7JRIPK/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1Kv4INFuAREdpTVz1q027aFoss_4a6ehQ/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1Bb1BmQ3wWoLgcuSZhDVAO-8kCE0xXahS/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/10w2TA5kRKq3iUZFjzCEiRSqrHhzeC83b/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K_2Х.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1beJ93tD4QnFHx4JcxqvB-Kbv_ypAT6OF/view?usp=drivesdk" target="_blank" rel="noopener">BUMP_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/15xLE-8qQLGLqn8ZCezaKqmPtZlXphh4O/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K (1).png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1RRuzWYXClZQJVi8P6MGDbTeQDeycjvyr/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K (1).png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1i81OU5F4k8Y0znGUm1Y2T0s7z_2t6Pei/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP (1).png ↗</a>
+        <article class="resource-group gallery">
+          <div class="gallery-head"><div><h3>Примеры: мрамор и плитка</h3><p>Референсы и готовые карты из папки «Другие примеры».</p></div><span class="gallery-count">2 материала</span></div>
+          <div class="material-grid">
+            <figure class="material-card reference"><img src="https://drive.google.com/thumbnail?id=1qOy4WiqqdRJ1MozZIT6r62RwYJIqSLHS&amp;sz=w1000" alt="Референс мрамора" loading="lazy"><figcaption>Референс · мрамор</figcaption></figure>
+            <figure class="material-card reference"><img src="https://drive.google.com/thumbnail?id=1o6teCKhua5VK_kUBQF5M9Qxoqo8yM8wr&amp;sz=w1000" alt="Референс плитки" loading="lazy"><figcaption>Референс · плитка</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1CndZWaVQfiRpugiTMuoZiEwLvpmDDeol&amp;sz=w1000" alt="Diffuse карта 4K для мрамора и плитки" loading="lazy"><figcaption>Diffuse · цвет и рисунок</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1eoH7VGMemTuDiuNZ5K5jzXBFdf7JRIPK&amp;sz=w1000" alt="Normal карта 4K" loading="lazy"><figcaption>Normal · микрорельеф</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1Kv4INFuAREdpTVz1q027aFoss_4a6ehQ&amp;sz=w1000" alt="Glossiness карта 4K" loading="lazy"><figcaption>Glossiness · глянцевость</figcaption></figure>
+            <figure class="material-card setup"><img src="https://drive.google.com/thumbnail?id=1Bb1BmQ3wWoLgcuSZhDVAO-8kCE0xXahS&amp;sz=w1000" alt="Настройка материала в 3ds Max" loading="lazy"><figcaption>Material Setup · сборка материала</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=10w2TA5kRKq3iUZFjzCEiRSqrHhzeC83b&amp;sz=w1000" alt="Дополнительная Diffuse карта 4K" loading="lazy"><figcaption>Diffuse · второй вариант</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1beJ93tD4QnFHx4JcxqvB-Kbv_ypAT6OF&amp;sz=w1000" alt="Bump карта 4K" loading="lazy"><figcaption>Bump · выраженность рельефа</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=15xLE-8qQLGLqn8ZCezaKqmPtZlXphh4O&amp;sz=w1000" alt="Normal карта 4K, второй пример" loading="lazy"><figcaption>Normal · второй вариант</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1RRuzWYXClZQJVi8P6MGDbTeQDeycjvyr&amp;sz=w1000" alt="Glossiness карта 4K, второй пример" loading="lazy"><figcaption>Glossiness · второй вариант</figcaption></figure>
+            <figure class="material-card setup"><img src="https://drive.google.com/thumbnail?id=1i81OU5F4k8Y0znGUm1Y2T0s7z_2t6Pei&amp;sz=w1000" alt="Дополнительная настройка материала" loading="lazy"><figcaption>Material Setup · второй пример</figcaption></figure>
           </div>
         </article>
 
-        <article class="resource-group">
-          <h3>Пример с панно</h3>
-          <p>Референс и набор карт 4K для материала панно.</p>
-          <div class="links">
-            <a class="drive-link" href="https://drive.google.com/drive/folders/1QRTYdUjgTtkJWwBw6BtokuzgfolSBfbS" target="_blank" rel="noopener">ОТКРЫТЬ ПАПКУ «ПРИМЕР С ПАННО» ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1gQ9R-jWmRD5bDdWq9YT7rY1-dpGjPh6y/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС ПАННО.jpeg ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/18pL9V8QJYKJHZmgM_0Sbo7fhY_EV0PRY/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/168xVUJ56c_4uFJLg_NZfK3JFAot26ft_/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1pDJ9-1WdOoO-zm0OTC-M_kbxezP7ibxD/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1ydR6kvsu511yRJrv7EQnF5Pn-ogvLVIu/view?usp=drivesdk" target="_blank" rel="noopener">HEIGHT_4K.png ↗</a>
-            <a class="drive-link file" href="https://drive.google.com/file/d/1_dEgURIu7gZmylMXaYT8Q3Ja543i9BoC/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP.png ↗</a>
+        <article class="resource-group gallery">
+          <div class="gallery-head"><div><h3>Пример с панно</h3><p>Референс и комплект карт для объёмного декоративного материала.</p></div><span class="gallery-count">1 материал</span></div>
+          <div class="material-grid">
+            <figure class="material-card reference"><img src="https://drive.google.com/thumbnail?id=1gQ9R-jWmRD5bDdWq9YT7rY1-dpGjPh6y&amp;sz=w1000" alt="Референс декоративного панно" loading="lazy"><figcaption>Референс · панно</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=18pL9V8QJYKJHZmgM_0Sbo7fhY_EV0PRY&amp;sz=w1000" alt="Diffuse карта 4K для панно" loading="lazy"><figcaption>Diffuse · цвет и рисунок</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=168xVUJ56c_4uFJLg_NZfK3JFAot26ft_&amp;sz=w1000" alt="Normal карта 4K для панно" loading="lazy"><figcaption>Normal · микрорельеф</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1pDJ9-1WdOoO-zm0OTC-M_kbxezP7ibxD&amp;sz=w1000" alt="Glossiness карта 4K для панно" loading="lazy"><figcaption>Glossiness · глянцевость</figcaption></figure>
+            <figure class="material-card"><img src="https://drive.google.com/thumbnail?id=1ydR6kvsu511yRJrv7EQnF5Pn-ogvLVIu&amp;sz=w1000" alt="Height карта 4K для панно" loading="lazy"><figcaption>Height · высота рельефа</figcaption></figure>
+            <figure class="material-card setup"><img src="https://drive.google.com/thumbnail?id=1_dEgURIu7gZmylMXaYT8Q3Ja543i9BoC&amp;sz=w1000" alt="Настройка материала панно" loading="lazy"><figcaption>Material Setup · сборка материала</figcaption></figure>
           </div>
         </article>
       </section>
