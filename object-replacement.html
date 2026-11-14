@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3f00ff">
+  <meta name="description" content="Инструкция и промт для замены объекта в интерьере по референсу.">
+  <title>Промт для замены любого объекта в интерьере по референсу ✨ — Bazhena Maximova</title>
+  <style>
+    :root { color-scheme:light; --ink:#171813; --muted:#72746c; --accent:#3f00ff; --paper:#fff; --line:#e9eae4; --soft:#f8f9f5; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    .page { width:min(100% - 40px,760px); margin:0 auto; padding:14px 0 28px; }
+    .action-row { display:flex; align-items:center; justify-content:center; gap:16px; margin:0 auto; }
+    button { display:inline-flex; min-height:54px; align-items:center; justify-content:center; gap:11px; padding:0 22px; border:0; border-radius:999px; background:var(--accent); color:#fff; font:inherit; font-size:12px; font-weight:750; letter-spacing:.075em; cursor:pointer; transition:transform .18s ease,background .18s ease; }
+    button:hover { transform:translateY(-2px); background:#3300d6; }
+    button:focus-visible { outline:3px solid var(--ink); outline-offset:4px; }
+    button svg { width:17px; height:17px; }
+    #status { min-height:1.4em; color:var(--muted); font-size:13px; }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:22px; }
+    .brand { font-size:12px; font-weight:650; letter-spacing:.14em; text-transform:uppercase; }
+    .tag { display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .tag::before { content:""; width:8px; height:8px; background:var(--accent); border-radius:50%; }
+    main { padding:clamp(42px,7vw,72px) 0 72px; }
+    .eyebrow { margin:0 0 20px; color:var(--muted); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { max-width:700px; margin:0; font-size:clamp(36px,6.2vw,62px); font-weight:560; letter-spacing:-.065em; line-height:1.02; }
+    h1 span { position:relative; z-index:0; white-space:nowrap; }
+    h1 span::after { position:absolute; z-index:-1; right:-.04em; bottom:.04em; left:-.035em; height:.31em; background:var(--accent); content:""; }
+    .intro { max-width:650px; margin:24px 0 0; color:var(--muted); font-size:16px; line-height:1.65; }
+    .guide { margin-top:28px; padding:22px 24px; border:1px solid var(--line); border-radius:18px; background:#fff; color:#3a3b35; font-size:14px; line-height:1.7; }
+    .guide h2 { margin:0 0 12px; color:var(--ink); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    .guide p { margin:0; }
+    .guide p + p { margin-top:12px; }
+    .guide ol, .guide ul { margin:8px 0 0; padding-left:22px; }
+    .guide li + li { margin-top:7px; }
+    .guide .important { margin-top:18px; font-weight:700; }
+    .guide .closing { margin-top:16px; font-weight:650; }
+    .prompt-card { margin-top:28px; overflow:hidden; border:1px solid var(--line); border-radius:18px; background:var(--soft); }
+    .card-head { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid var(--line); background:var(--paper); }
+    .card-head strong { font-size:11px; font-weight:650; letter-spacing:.13em; text-transform:uppercase; }
+    .card-head span { color:var(--muted); font-size:12px; }
+    pre { margin:0; padding:26px 28px 30px; color:#282a22; font:14px/1.78 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; white-space:pre-wrap; overflow-wrap:anywhere; }
+    footer { display:flex; justify-content:space-between; gap:16px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.06em; }
+    @media(max-width:560px) {
+      .page { width:min(100% - 32px,760px); padding-top:10px; }
+      .brand { font-size:10px; } .tag { font-size:9px; }
+      main { padding-top:42px; padding-bottom:56px; }
+      .intro { font-size:15px; }
+      .guide { margin-top:22px; padding:18px 17px; font-size:13px; }
+      .prompt-card { margin-top:24px; border-radius:14px; }
+      .card-head { padding:15px 16px; }
+      pre { padding:20px 17px 23px; font-size:12px; line-height:1.72; }
+      .action-row { align-items:center; flex-direction:column; gap:11px; }
+      button { width:100%; max-width:360px; }
+      footer { font-size:9px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="action-row">
+      <button id="copy" type="button" aria-label="Скопировать промт">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.7"/></svg>
+        СКОПИРОВАТЬ ПРОМТ
+      </button>
+      <span id="status" role="status" aria-live="polite"></span>
+    </div>
+    <header class="topline"><div class="brand">Bazhena Maximova</div><div class="tag">Object replacement prompt</div></header>
+    <main>
+      <p class="eyebrow">Для интерьерных 3D-рендеров</p>
+      <h1>Промт для замены любого<br><span>объекта в интерьере</span><br>по референсу ✨</h1>
+      <div class="guide">
+        <h2>Как использовать</h2>
+        <ol>
+          <li>Загружаем 2 изображения:<br>первое — объект, который нужно добавить в сцену;<br>второе — интерьер, в котором нужно заменить существующий объект</li>
+          <li>Добавляем этот промт</li>
+          <li>Получаем красоту 🤍</li>
+        </ol>
+        <p class="important">Важно!</p>
+        <ul>
+          <li>Лучше всего промт работает при замене объектов одного типа: кресло → кресло/стул,  светильник → светильник и т.д.</li>
+          <li>На первом изображении желательно, чтобы был только нужный объект (или он был главным в кадре). Если объектов несколько, лучше дополнительно указать в промте, какой именно нужно перенести.</li>
+          <li>Промт полностью написан на русском языке для удобного редактирования</li>
+        </ul>
+        <p class="closing">Экспериментируйте 🌸</p>
+      </div>
+      
+      <section class="prompt-card" aria-labelledby="prompt-label">
+        <div class="card-head"><strong id="prompt-label">Готовый промт</strong><span>Object replacement prompt</span></div>
+        <pre id="prompt">Используй первое изображение исключительно как референс объекта.
+
+Используй второе изображение как полностью готовую фотографию интерьера.
+
+## Главная задача
+
+Полностью удали исходный объект со второго изображения.
+
+На его место помести объект с первого изображения.
+
+Результат должен выглядеть так, будто именно этот объект изначально находился в интерьере во время фотосъёмки.
+
+Интерьер НЕ пересоздавать.
+
+Не делать новую сцену.
+
+Не делать новый рендер.
+
+Это не генерация интерьера, а профессиональная замена одного предмета мебели на готовой фотографии.
+
+---
+
+## Объект
+
+Полностью сохрани дизайн объекта с первого изображения.
+
+Не изменяй:
+
+• форму;
+• пропорции;
+• силуэт;
+• конструкцию;
+• материалы;
+• цвет;
+• фактуру;
+• текстуру;
+• толщину элементов;
+• радиусы скруглений;
+• декоративные детали.
+
+Объект должен быть полностью узнаваемым и идентичным оригиналу.
+
+---
+
+## Интеграция
+
+Не вставляй объект как вырезанное изображение.
+
+Не копируй белый фон.
+
+Не оставляй ощущение коллажа.
+
+Не используй объект как плоскую наклейку.
+
+Воссоздай объект в пространстве сцены с учётом перспективы камеры.
+
+Объект должен выглядеть физически присутствующим в интерьере.
+
+Он должен иметь реальный объём.
+
+Все поверхности должны иметь естественную перспективу относительно камеры.
+
+---
+
+## Масштаб
+
+Сохрани положение исходного объекта.
+
+Сохрани:
+
+• размеры;
+• масштаб;
+• ориентацию;
+• высоту;
+• расстояние до стен;
+• расстояние до других предметов;
+• положение на полу.
+
+Не освобождай дополнительное пространство вокруг объекта.
+
+Не уменьшай его.
+
+Не увеличивай его.
+
+Новый предмет должен занимать практически тот же объём, что и старый.
+
+---
+
+## Освещение
+
+Полностью используй освещение второго изображения.
+
+Не освещай объект отдельно.
+
+Не используй студийный свет.
+
+Объект обязан получать:
+
+• тот же солнечный свет;
+• те же мягкие тени;
+• те же отражения;
+• те же цветовые рефлексы;
+• ту же температуру света;
+• ту же экспозицию.
+
+Добавь:
+
+• контактную тень;
+• окклюзию в местах соприкосновения с полом;
+• отражения от окружающих поверхностей;
+• естественные блики материалов.
+
+Освещение объекта должно полностью совпадать с освещением помещения.
+
+---
+
+## Камера
+
+Полностью сохрани второе изображение.
+
+Запрещено изменять:
+
+• кадрирование;
+• композицию;
+• соотношение сторон;
+• положение камеры;
+• высоту камеры;
+• угол обзора;
+• перспективу;
+• фокусное расстояние;
+• глубину резкости.
+
+Запрещено приближать или отдалять камеру.
+
+Запрещено делать новый ракурс.
+
+---
+
+## Интерьер
+
+Не изменяй вообще ничего кроме заменяемого объекта.
+
+Не изменяй:
+
+• стены;
+• потолок;
+• пол;
+• окна;
+• двери;
+• светильники;
+• ковры;
+• картины;
+• растения;
+• декор;
+• мебель;
+• цветовую палитру;
+• материалы;
+• текстуры.
+
+Меняется только один объект.
+
+---
+
+## Финальный результат
+
+Финальное изображение должно выглядеть как профессиональная интерьерная фотография.
+
+Невозможно определить, что мебель была заменена.
+
+Объект должен выглядеть так, словно был частью сцены с момента съёмки.
+
+Главный критерий качества — абсолютная естественность интеграции, а не простое копирование формы объекта</pre>
+      </section>
+    </main>
+    <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
+  </div>
+  <script>
+    const button = document.getElementById('copy');
+    const promptText = document.getElementById('prompt').textContent.trim();
+    const status = document.getElementById('status');
+    button.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(promptText); status.textContent = 'Промт скопирован'; }
+      catch {
+        const field = document.createElement('textarea'); field.value = promptText; field.style.position = 'fixed'; field.style.opacity = '0'; document.body.appendChild(field); field.select();
+        const copied = document.execCommand('copy'); field.remove(); status.textContent = copied ? 'Промт скопирован' : 'Выделите текст промта и скопируйте его вручную';
+      }
+      window.setTimeout(() => { status.textContent = ''; }, 2600);
+    });
+  </script>
+</body>
+</html>
