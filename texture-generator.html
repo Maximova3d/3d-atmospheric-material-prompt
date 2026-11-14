@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e7ff38">
+  <meta name="description" content="Как я генерирую 4K-текстуры для 3ds Max по референсу из Pinterest: инструкции, примеры и материалы для скачивания.">
+  <title>Как я генерирую 4K-текстуры для 3ds Max — Bazhena Maximova</title>
+  <style>
+    :root { color-scheme:light; --ink:#171813; --muted:#72746c; --accent:#e7ff38; --paper:#fff; --line:#e9eae4; --soft:#f8f9f5; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    .page { width:min(100% - 40px,900px); margin:0 auto; padding:14px 0 36px; }
+    .top-action { display:flex; justify-content:center; }
+    .top-action a,.drive-link { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 20px; border-radius:999px; background:var(--accent); color:var(--ink); text-decoration:none; font-size:12px; font-weight:750; letter-spacing:.055em; transition:transform .18s ease,background .18s ease; }
+    .top-action a:hover,.drive-link:hover { transform:translateY(-2px); background:#d9f021; }
+    .topline { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:22px; }
+    .brand { font-size:12px; font-weight:650; letter-spacing:.14em; text-transform:uppercase; }
+    .tag { display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .tag::before { content:""; width:8px; height:8px; background:var(--accent); border-radius:50%; }
+    main { padding:clamp(44px,7vw,76px) 0 58px; }
+    .eyebrow { margin:0 0 18px; color:var(--muted); font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { max-width:850px; margin:0; font-size:clamp(38px,7vw,68px); font-weight:560; letter-spacing:-.065em; line-height:1.02; }
+    h1 span { position:relative; z-index:0; white-space:nowrap; }
+    h1 span::after { position:absolute; z-index:-1; right:-.035em; bottom:.04em; left:-.035em; height:.31em; background:var(--accent); content:""; }
+    .lead { max-width:700px; margin:24px 0 0; color:var(--muted); font-size:16px; line-height:1.7; }
+    .lead strong { color:var(--ink); font-weight:650; }
+    .hero-buttons { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .hero-buttons a.secondary { background:#fff; border:1px solid var(--line); }
+    .section { margin-top:60px; }
+    .section-title { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin:0 0 18px; }
+    h2 { margin:0; font-size:clamp(22px,4vw,30px); font-weight:570; letter-spacing:-.045em; }
+    .section-title p { margin:0; color:var(--muted); font-size:12px; }
+    .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .step { min-height:170px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--soft); }
+    .step-num { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--accent); font-size:12px; font-weight:700; }
+    .step h3 { margin:15px 0 8px; font-size:14px; }
+    .step p { margin:0; color:var(--muted); font-size:12px; line-height:1.6; }
+    .resource-group { margin-top:16px; padding:20px; border:1px solid var(--line); border-radius:18px; background:#fff; }
+    .resource-group h3 { margin:0; font-size:15px; font-weight:650; }
+    .resource-group>p { margin:7px 0 0; color:var(--muted); font-size:12px; line-height:1.6; }
+    .links { display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+    .drive-link { min-height:40px; padding:0 15px; font-size:11px; letter-spacing:.015em; }
+    .drive-link.file { background:#fff; border:1px solid var(--line); font-weight:600; }
+    .drive-link.file:hover { background:var(--soft); }
+    .note { margin-top:18px; padding:16px 18px; border-left:3px solid var(--accent); background:var(--soft); color:var(--muted); font-size:13px; line-height:1.65; }
+    footer { display:flex; justify-content:space-between; gap:16px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.06em; }
+    @media(max-width:720px) { .steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:520px) {
+      .page { width:min(100% - 32px,900px); padding-top:10px; }
+      .brand { font-size:10px; } .tag { font-size:9px; }
+      main { padding-top:44px; }
+      .lead { font-size:15px; }
+      .section { margin-top:46px; }
+      .section-title { display:block; }
+      .section-title p { margin-top:7px; }
+      .steps { gap:9px; }
+      .step { min-height:0; padding:15px; }
+      .resource-group { padding:16px; }
+      .drive-link { flex:1 1 auto; }
+      footer { font-size:9px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top-action"><a href="https://drive.google.com/drive/folders/1bzTJY7gzA1F9UG4U2xYbZzEMGXVehzbm" target="_blank" rel="noopener">ОТКРЫТЬ ВСЕ МАТЕРИАЛЫ НА GOOGLE DRIVE ↗</a></div>
+    <header class="topline"><div class="brand">Bazhena Maximova</div><div class="tag">4K texture workflow</div></header>
+    <main>
+      <p class="eyebrow">Pinterest reference → 3ds Max</p>
+      <h1>Как я генерирую<br><span>4K-текстуры</span> для 3ds Max<br>по картинке из Pinterest</h1>
+      <p class="lead">Настраиваю отдельный проект GPT с инструкцией, прикрепляю референс материала из Pinterest и описываю, для какой поверхности нужна текстура. На выходе — комплект отдельных карт 4K и рекомендации по настройке материала.</p>
+      <p class="lead"><strong>Я использую Телеграм-бот Syntx Ai или GPT</strong></p>
+      <div class="hero-buttons">
+        <a class="drive-link" href="https://docs.google.com/document/d/19xCJnbzRmqstiyfLEF7E3cli2_oQebVp/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">ИНСТРУКЦИЯ ПО НАСТРОЙКЕ GPT ↗</a>
+        <a class="drive-link secondary" href="#materials">ПОСМОТРЕТЬ ПРИМЕРЫ ↓</a>
+      </div>
+
+      <section class="section" aria-labelledby="steps-title">
+        <div class="section-title"><h2 id="steps-title">Как устроен процесс</h2><p>Настройка нужна один раз для отдельного GPT-проекта</p></div>
+        <div class="steps">
+          <article class="step"><span class="step-num">1</span><h3>Создай проект</h3><p>Например, «Генератор текстур» в ChatGPT.</p></article>
+          <article class="step"><span class="step-num">2</span><h3>Добавь инструкцию</h3><p>Вставь файл-инструкцию в настройки проекта.</p></article>
+          <article class="step"><span class="step-num">3</span><h3>Прикрепи референс</h3><p>Добавь картинку из Pinterest и назови нужный материал и поверхность.</p></article>
+          <article class="step"><span class="step-num">4</span><h3>Запроси карты</h3><p>После анализа отправь «Генерируй» и получи текстуры, настройку материала и ZIP.</p></article>
+        </div>
+        <div class="note">Сначала GPT анализирует материал и предлагает нужные карты. Генерация начинается после отдельной команды. Если чего-то не хватает, можно попросить дополнительные карты или уточнить масштаб и фактуру.</div>
+      </section>
+
+      <section class="section" id="materials" aria-labelledby="materials-title">
+        <div class="section-title"><h2 id="materials-title">Инструкции и примеры</h2><p>Все материалы открываются по кнопкам</p></div>
+
+        <article class="resource-group">
+          <h3>Настройка генератора</h3>
+          <p>Короткая инструкция по созданию проекта и работе с референсами.</p>
+          <div class="links">
+            <a class="drive-link" href="https://docs.google.com/document/d/19xCJnbzRmqstiyfLEF7E3cli2_oQebVp/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">КАК НАСТРОИТЬ ГЕНЕРАТОР ТЕКСТУР В GPT ↗</a>
+            <a class="drive-link file" href="https://docs.google.com/document/d/1ilhcYYK1CxKkTn4ZbaeltszuxnVt2VNL/edit?usp=drivesdk&amp;ouid=107503770317094583927&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">ПРОМТ-ИНСТРУКЦИЯ К ПРОЕКТУ ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1yLXscyz5gTvpYvBMJ0NIwRw3hFyh3xff/view?usp=drivesdk" target="_blank" rel="noopener">КАК Я ОПЛАЧИВАЮ ЗАРУБЕЖНЫЕ СЕРВИСЫ · PDF ↗</a>
+          </div>
+        </article>
+
+        <article class="resource-group">
+          <h3>Примеры: мрамор и плитка</h3>
+          <p>Референсы и карты из папки «Другие примеры». Названия карт оставлены как на Google Drive.</p>
+          <div class="links">
+            <a class="drive-link" href="https://drive.google.com/drive/folders/18HTvsALzzVHAsSWoCWtYpC5NKVUmVO0X" target="_blank" rel="noopener">ОТКРЫТЬ ПАПКУ «ДРУГИЕ ПРИМЕРЫ» ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1qOy4WiqqdRJ1MozZIT6r62RwYJIqSLHS/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС · МРАМОР.jpg ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1o6teCKhua5VK_kUBQF5M9Qxoqo8yM8wr/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС · ПЛИТКА.jpg ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1CndZWaVQfiRpugiTMuoZiEwLvpmDDeol/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1eoH7VGMemTuDiuNZ5K5jzXBFdf7JRIPK/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1Kv4INFuAREdpTVz1q027aFoss_4a6ehQ/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1Bb1BmQ3wWoLgcuSZhDVAO-8kCE0xXahS/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/10w2TA5kRKq3iUZFjzCEiRSqrHhzeC83b/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K_2Х.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1beJ93tD4QnFHx4JcxqvB-Kbv_ypAT6OF/view?usp=drivesdk" target="_blank" rel="noopener">BUMP_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/15xLE-8qQLGLqn8ZCezaKqmPtZlXphh4O/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K (1).png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1RRuzWYXClZQJVi8P6MGDbTeQDeycjvyr/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K (1).png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1i81OU5F4k8Y0znGUm1Y2T0s7z_2t6Pei/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP (1).png ↗</a>
+          </div>
+        </article>
+
+        <article class="resource-group">
+          <h3>Пример с панно</h3>
+          <p>Референс и набор карт 4K для материала панно.</p>
+          <div class="links">
+            <a class="drive-link" href="https://drive.google.com/drive/folders/1QRTYdUjgTtkJWwBw6BtokuzgfolSBfbS" target="_blank" rel="noopener">ОТКРЫТЬ ПАПКУ «ПРИМЕР С ПАННО» ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1gQ9R-jWmRD5bDdWq9YT7rY1-dpGjPh6y/view?usp=drivesdk" target="_blank" rel="noopener">РЕФЕРЕНС ПАННО.jpeg ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/18pL9V8QJYKJHZmgM_0Sbo7fhY_EV0PRY/view?usp=drivesdk" target="_blank" rel="noopener">DIFFUSE_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/168xVUJ56c_4uFJLg_NZfK3JFAot26ft_/view?usp=drivesdk" target="_blank" rel="noopener">NORMAL_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1pDJ9-1WdOoO-zm0OTC-M_kbxezP7ibxD/view?usp=drivesdk" target="_blank" rel="noopener">GLOSSINESS_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1ydR6kvsu511yRJrv7EQnF5Pn-ogvLVIu/view?usp=drivesdk" target="_blank" rel="noopener">HEIGHT_4K.png ↗</a>
+            <a class="drive-link file" href="https://drive.google.com/file/d/1_dEgURIu7gZmylMXaYT8Q3Ja543i9BoC/view?usp=drivesdk" target="_blank" rel="noopener">MATERIAL_SETUP.png ↗</a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
+  </div>
+</body>
+</html>
