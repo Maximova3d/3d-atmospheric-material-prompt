@@ -33,7 +33,7 @@
     h2 { margin:0; font-size:clamp(22px,4vw,30px); font-weight:570; letter-spacing:-.045em; }
     .section-title p { margin:0; color:var(--muted); font-size:12px; }
     .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-    .step { min-height:170px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--soft); }
+    .step { min-height:205px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--soft); }
     .step-num { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--accent); font-size:12px; font-weight:700; }
     .step h3 { margin:15px 0 8px; font-size:14px; }
     .step p { margin:0; color:var(--muted); font-size:12px; line-height:1.6; }
@@ -44,6 +44,10 @@
     .drive-link { min-height:40px; padding:0 15px; font-size:11px; letter-spacing:.015em; }
     .drive-link.file { background:#fff; border:1px solid var(--line); font-weight:600; }
     .drive-link.file:hover { background:var(--soft); }
+    .payment-option { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+    .payment-option h4 { margin:0; font-size:14px; }
+    .payment-option p { margin:7px 0 12px; color:var(--muted); font-size:12px; line-height:1.65; }
+    .fineprint { margin-top:18px!important; font-size:11px!important; }
     .gallery-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
     .gallery-count { flex:none; padding:7px 10px; border-radius:999px; background:var(--soft); color:var(--muted); font-size:10px; white-space:nowrap; }
     .material-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:18px; }
@@ -89,24 +93,24 @@
       <section class="section" aria-labelledby="steps-title">
         <div class="section-title"><h2 id="steps-title">Как устроен процесс</h2><p>Настройка нужна один раз для отдельного GPT-проекта</p></div>
         <div class="steps">
-          <article class="step"><span class="step-num">1</span><h3>Создай проект</h3><p>Например, «Генератор текстур» в ChatGPT.</p></article>
-          <article class="step"><span class="step-num">2</span><h3>Добавь инструкцию</h3><p>Вставь файл-инструкцию в настройки проекта.</p></article>
-          <article class="step"><span class="step-num">3</span><h3>Прикрепи референс</h3><p>Добавь картинку из Pinterest и назови нужный материал и поверхность.</p></article>
-          <article class="step"><span class="step-num">4</span><h3>Запроси карты</h3><p>После анализа отправь «Генерируй» и получи текстуры, настройку материала и ZIP.</p></article>
+          <article class="step"><span class="step-num">1</span><h3>Создай проект</h3><p>В ChatGPT открой раздел «Проекты», нажми «Создать» и назови проект, например «Генератор текстур».</p></article>
+          <article class="step"><span class="step-num">2</span><h3>Добавь инструкцию</h3><p>В настройках проекта найди поле «Инструкции проекта» и вставь туда промт-инструкцию. Это делается один раз: в новых чатах этого проекта повторно добавлять её не нужно.</p></article>
+          <article class="step"><span class="step-num">3</span><h3>Загрузи референс</h3><p>Прикрепи картинку материала из Pinterest. В сообщении уточни, что именно нужно, например: «мрамор для кухонной столешницы».</p></article>
+          <article class="step"><span class="step-num">4</span><h3>Проверь и сгенерируй</h3><p>Сначала GPT разберёт референс и предложит подходящие карты. Уточни детали, если нужно, а когда всё устраивает — напиши «генерируй».</p></article>
         </div>
-        <div class="note">Сначала GPT анализирует материал и предлагает нужные карты. Генерация начинается после отдельной команды «генерируй». Если чего-то не хватает, можно попросить дополнительные карты или уточнить масштаб и фактуру.</div>
+        <div class="note"><strong>Что получится:</strong> сначала GPT покажет превью карт, затем соберёт архив с текстурами в 4K и короткую картинку-подсказку, как собрать материал в 3ds Max. Если архив или подсказка не появились, попроси прислать их отдельным файлом.</div>
+        <article class="resource-group"><h3>Если результат нужно поправить</h3><p><strong>Текстура не похожа на референс:</strong> попроси точнее сохранить его цвет, рисунок и фактуру.</p><p><strong>Детали выглядят неестественно:</strong> попроси сделать фактуру чётче и реалистичнее, не меняя сам материал.</p><p><strong>Рисунок слишком крупный или мелкий:</strong> попроси изменить масштаб рисунка, оставив остальные свойства без изменений.</p></article>
       </section>
 
       <section class="section" id="materials" aria-labelledby="materials-title">
         <div class="section-title"><h2 id="materials-title">Инструкция и примеры</h2><p>Карты можно рассмотреть прямо здесь</p></div>
 
         <article class="resource-group">
-          <h3>Ссылки из PDF о способах оплаты</h3>
-          <p>В PDF были две кликабельные кнопки. Перенесла их сюда как есть:</p>
-          <div class="links">
-            <a class="drive-link" href="https://clck.su/EyKVU" target="_blank" rel="noopener">ВИРТУАЛЬНАЯ КАРТА · БОНУС $5 ↗</a>
-            <a class="drive-link file" href="https://clck.su/aspBV" target="_blank" rel="noopener">РАЗОВАЯ ОПЛАТА ЧЕРЕЗ OPLATYM.RU ↗</a>
-          </div>
+          <h3>Как я оплачиваю зарубежные сервисы</h3>
+          <p>Эти варианты подходят для сайтов, нейросетей и подписок, где не принимают российские карты. Можно выбрать любой удобный способ — ниже делюсь теми, которыми пользуюсь сама.</p>
+          <div class="payment-option"><h4>Для регулярных подписок — виртуальная карта</h4><p>Для ежемесячных платежей я использую виртуальную карту зарубежного банка. Мне так удобнее и выгоднее, чем каждый раз оплачивать через посредника. После оформления карты на счёт начисляется приветственный бонус $5.</p><a class="drive-link" href="https://clck.su/EyKVU" target="_blank" rel="noopener">ОФОРМИТЬ ВИРТУАЛЬНУЮ КАРТУ ↗</a></div>
+          <div class="payment-option"><h4>Для разовой оплаты — Oplatym.ru</h4><p>Если хочется сначала попробовать сервис, оплатить одну покупку или подписку только на месяц, я пользуюсь Oplatym.ru.</p><a class="drive-link file" href="https://clck.su/aspBV" target="_blank" rel="noopener">ПЕРЕЙТИ К РАЗОВОЙ ОПЛАТЕ ↗</a></div>
+          <p class="fineprint">Это мой личный опыт, а не рейтинг сервисов. Условия, комиссии и доступность оплаты могут меняться — перед оплатой проверь актуальную информацию на сайте самого сервиса.</p>
         </article>
 
         <article class="resource-group gallery">
