@@ -47,8 +47,6 @@
     .payment-option .drive-link, .payment-option .drive-link.file { background:#fff; border:1.5px solid var(--accent); color:var(--ink); }
     .payment-option .drive-link:hover, .payment-option .drive-link.file:hover { background:#fff; border-color:#c8e600; }
     .guide-copy>p { color:var(--ink); font-size:14px; line-height:1.75; }
-    .guide-download { display:inline-flex; align-items:center; justify-content:center; min-height:44px; margin:12px 0 18px; padding:0 16px; border:1.5px solid var(--accent); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:11px; font-weight:750; letter-spacing:.04em; }
-    .guide-download:hover { background:var(--soft); }
     .guide-copy>p:first-of-type { margin-top:20px; }
     .guide-copy>h3 { margin-bottom:10px; }
     .guide-copy .guide-subheading { margin-top:28px; padding-top:18px; border-top:1px solid var(--line); }
@@ -89,6 +87,27 @@
       footer { font-size:9px; }
     }
     @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
+    .issue-section { margin-top:30px; padding:20px; border:1px solid var(--line); border-radius:20px; background:linear-gradient(145deg,#fbfcf7,#f5f7ef); }
+    .guide-block-heading { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+    .guide-block-heading h3 { margin:0; font-size:17px; letter-spacing:-.02em; }
+    .block-icon,.memo-icon { display:grid; place-items:center; flex:none; width:38px; height:38px; border-radius:13px; background:var(--accent); font-weight:800; }
+    .block-kicker { margin:0 0 3px!important; color:var(--muted)!important; font-size:9px!important; font-weight:700; letter-spacing:.14em; }
+    .issue-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .issue-card { display:grid; grid-template-columns:32px minmax(0,1fr); gap:12px; padding:16px; border:1px solid #e5e7dc; border-radius:15px; background:#fff; }
+    .issue-card-wide { grid-column:1/-1; }
+    .issue-number { display:grid; place-items:center; width:30px; height:30px; border-radius:10px; background:#f0f2e8; color:#55584c; font-size:10px; font-weight:750; }
+    .issue-card h4 { margin:3px 0 10px; font-size:13px; line-height:1.45; }
+    .solution { margin:0!important; padding:11px 12px; border-left:2px solid var(--accent); border-radius:0 10px 10px 0; background:#f8f9f4; color:#55574e!important; font-size:12px!important; line-height:1.65!important; }
+    .solution strong { color:var(--ink); font-size:10px; letter-spacing:.08em; }
+    .solution p { margin:7px 0 0; color:inherit; font-size:inherit; line-height:inherit; }
+    .issue-scale { margin:8px 0 12px!important; }
+    .issue-scale img { max-width:330px; max-height:420px!important; }
+    .memo-card { margin-top:16px; padding:20px; border:1px solid #e4e8c8; border-radius:18px; background:#f8fae9; }
+    .memo-title { display:flex; align-items:center; gap:11px; margin-bottom:10px; }
+    .memo-title h3 { margin:0; font-size:16px; }
+    .memo-card>p { margin:9px 0 0; color:#55574e; font-size:13px; line-height:1.7; }
+    @media(max-width:600px) { .issue-section { padding:15px; } .issue-list { grid-template-columns:1fr; } .issue-card-wide { grid-column:auto; } .guide-block-heading h3 { font-size:15px; } .memo-card { padding:16px; } }
   </style>
 </head>
 <body>
@@ -103,76 +122,8 @@
         <a class="drive-link secondary" href="#materials">ПОСМОТРЕТЬ ПРИМЕРЫ ↓</a>
       </div>
 
-      <section class="section" aria-labelledby="steps-title">
-        <div class="section-title"><h2 id="steps-title">Как настроить генератор текстур</h2></div>
-        <article class="resource-group guide-copy">
-          <h3>ИНСТРУКЦИЯ</h3>
-          <p>Шаг 1.</p>
-          <p>Создай проект и Назови его. Например «Генератор текстур».</p>
-          <div class="guide-image-grid">
-            <img src="guide-01-projects-menu.png" alt="Скриншот: открыть раздел Проекты в ChatGPT" loading="lazy">
-            <img src="guide-02-project-list.png" alt="Скриншот: создать проект в разделе Проекты" loading="lazy">
-          </div>
-          <div class="guide-image-grid single"><img src="guide-03-create-project.png" alt="Скриншот: форма создания проекта Генератор текстур" loading="lazy"></div>
-
-          <p>Шаг 2.</p>
-          <p>Вставь в «Инструкции проекта» текст с этой страницы.</p>
-          <a class="guide-download" href="project-instructions.html">ОТКРЫТЬ ТЕКСТ ИНСТРУКЦИИ ↗</a>
-          <div class="guide-image-grid single"><img src="guide-04-project-menu.png" alt="Скриншот: меню проекта" loading="lazy"></div>
-          <div class="guide-image-grid single"><img src="guide-05-edit-instructions.png" alt="Скриншот: выбрать редактирование инструкций проекта" loading="lazy"></div>
-          <div class="guide-image-grid">
-            <img src="guide-06-instructions-screen-a.png" alt="Скриншот: настройки проекта и поле для инструкции, часть 1" loading="lazy">
-            <img src="guide-07-instructions-screen-b.png" alt="Скриншот: настройки проекта и поле для инструкции, часть 2" loading="lazy">
-          </div>
-
-          <p>Шаг 3.</p>
-          <p>Можно переходить к созданию текстур</p>
-          <p>Теперь можешь создать новый чат или продолжить в этом же. Если создаешь новые чаты внутри этого Проекта, то никаких файлов/инструкций больше подгружать отдельно в каждый чат НЕ нужно, GPT автоматически найдет все приложенные инструкции и проанализирует их.</p>
-          <div class="guide-image-grid single"><img src="guide-08-created-project.png" alt="Скриншот: созданный проект Генератор текстур" loading="lazy"></div>
-
-          <p>Прикладываешь референс материала и пишешь, какой конкретно материал нужен, например «Мрамор/камень на кухонной столешнице» и т.п.</p>
-          <div class="guide-image-grid single"><img src="guide-09-reference-message.png" alt="Скриншот: пример запроса с референсом материала" loading="lazy"></div>
-          <p>GPT присылает анализ материала и предлагает набор текстур</p>
-          <p>Ты можешь попросить дополнительные текстуры, если каких-то не хватает, например «Также приложи ч/б текстуру пыли/грязи, подходящую данному материалу» и т.д.</p>
-          <p>Либо можешь что-то спросить/уточнить дополнительно.</p>
-          <p>Если все устраивает, отправляешь ему запрос «Генерируй».</p>
-          <div class="guide-image-grid single"><img src="guide-10-generation.png" alt="Скриншот: команда генерации текстур" loading="lazy"></div>
-          <p>GPT подготавливает превью всех текстур (они в низком разрешении) и выдает их картинками, а также собирает готовый архив со всеми картами в разрешении 4К и краткую рекомендательную инструкцию по настройке простого варианта материала.</p>
-          <p>Если прислал только превью без архива, пишем запрос по типу «Собирай Архив с текстурами в разрешении 4К, приложи картинку с инструкцией по сборке материала в 3D макс».</p>
-          <div class="guide-image-grid single"><img src="guide-11-texture-preview.jpg" alt="Пример превью текстур и готового архива" loading="lazy"></div>
-
-          <h3 class="guide-subheading">ВОЗМОЖНЫЕ ОШИБКИ И ИХ РЕШЕНИЕ</h3>
-          <p>1. Появились только превью текстур, но архив не собрался</p>
-          <p>РЕШЕНИЕ: отправь запрос ➡️ Собери архив с текстурами в разрешении 4К и прикрепи его файлом. Также приложи картинку с инструкцией по сборке материала в 3D Max</p>
-          <p>2. Текстуры с плохой/нереалистичной детализацией и т.п.</p>
-          <p>РЕШЕНИЕ: отправь запрос ➡️ Переделай текстуры: сейчас детализация выглядит некачественно или нереалистично. Сделай фактуру более чёткой, естественной и физически правдоподобной, не меняя сам материал</p>
-          <p>3. Текстуры не похожи на референс</p>
-          <p>РЕШЕНИЕ: отправь запрос ➡️ Переделай текстуры, ориентируясь точнее на референс: сохрани его цвет, рисунок, фактуру и характер материала</p>
-          <p>4. У текстур слишком крупный или слишком мелкий масштаб</p>
-          <div class="guide-image-grid single"><img src="guide-12-scale-examples.jpg" alt="Примеры масштаба текстуры: мелкий, средний и крупный" loading="lazy"></div>
-          <p>РЕШЕНИЕ:</p>
-          <p>- Если масштаб слишком крупный, отправь запрос ➡️Сделай рисунок/фактуру на текстурах мельче, остальные характеристики не меняй.</p>
-          <p>- Если слишком мелкий — отправь ➡️ Сделай рисунок/фактуру на текстурах крупнее, остальные характеристики не меняй</p>
-          <p>5. Ссылка на архив есть, но она не кликабельная</p>
-          <p>РЕШЕНИЕ: отправь запрос ➡️ Прикрепи архив повторно именно как кликабельный файл для скачивания, а не как текстовую ссылку</p>
-          <h3 class="guide-subheading">*ПАМЯТКА*</h3>
-          <p>Помните: GPT иногда может ошибаться, пропускать шаги или не сразу корректно выполнять инструкцию — даже если она очень подробная. Если что-то пошло не так, просто укажите, что именно нужно исправить, и попросите повторить конкретный этап.</p>
-          <p>На 100% следовать каждому шагу НЕ обязательно. Вы можете использовать другие аналогичные формулировки и запросы — главное, чтобы смысл был понятен. Шаги здесь даны как основа и ориентир, чтобы было проще понять принцип работы и получить нужный результат. Удачных генераций!</p>
-          <p>Bazhena_Maximova&nbsp;&nbsp;&nbsp; @3d_atmospheric</p>
-        </article>
-      </section>
-
       <section class="section" id="materials" aria-labelledby="materials-title">
-        <div class="section-title"><h2 id="materials-title">Инструкция и примеры</h2><p>Карты можно рассмотреть прямо здесь</p></div>
-
-        <article class="resource-group">
-          <h3>Как я оплачиваю зарубежные сервисы</h3>
-          <p>На случай, если вы раньше не оплачивали зарубежные сервисы или просто не знаете, как это сделать, делюсь вариантами, которыми пользуюсь сама. Вы, конечно, можете выбрать любой другой удобный сервис.</p>
-          <p>Подходит для сайтов, нейросетей и подписок, где не принимают российские карты.</p>
-          <div class="payment-option"><h4>РЕГУЛЯРНЫЕ ОПЛАТЫ</h4><h4>Виртуальная карта</h4><p>Для регулярных ежемесячных оплат я использую виртуальную карту зарубежного банка — в моём случае так удобнее и выгоднее, чем каждый раз обращаться к посреднику.</p><p>Приветственный бонус — $5 на счёт карты после оформления</p><a class="drive-link" href="https://clck.su/EyKVU" target="_blank" rel="noopener">КЛИКАЙ СЮДА →</a></div>
-          <div class="payment-option"><h4>РАЗОВЫЕ ОПЛАТЫ</h4><h4>Через Oplatym.ru</h4><p>Если хочу протестировать сервис, попробовать его возможности или оформить подписку на один месяц, пользуюсь Oplatym.ru.</p><a class="drive-link file" href="https://clck.su/aspBV" target="_blank" rel="noopener">КЛИКАЙ СЮДА →</a></div>
-          <p class="fineprint">Это варианты из моего личного опыта, а не рейтинг сервисов. Актуальные условия, комиссии и доступные оплаты лучше уточнять на сайтах самих сервисов.</p>
-        </article>
+        <div class="section-title"><h2 id="materials-title">Примеры материалов</h2></div>
 
         <article class="resource-group gallery">
           <h3 class="gallery-title">Примеры: мрамор и плитка</h3>
@@ -202,7 +153,73 @@
             <figure class="material-card setup"><img src="https://drive.google.com/thumbnail?id=1_dEgURIu7gZmylMXaYT8Q3Ja543i9BoC&amp;sz=w1000" alt="Настройка материала панно" loading="lazy"><figcaption>Material Setup · сборка материала</figcaption></figure>
           </div>
         </article>
+
+        <article class="resource-group">
+          <h3>Как я оплачиваю зарубежные сервисы</h3>
+          <p>На случай, если вы раньше не оплачивали зарубежные сервисы или просто не знаете, как это сделать, делюсь вариантами, которыми пользуюсь сама. Вы, конечно, можете выбрать любой другой удобный сервис.</p>
+          <p>Подходит для сайтов, нейросетей и подписок, где не принимают российские карты.</p>
+          <div class="payment-option"><h4>РЕГУЛЯРНЫЕ ОПЛАТЫ</h4><h4>Виртуальная карта</h4><p>Для регулярных ежемесячных оплат я использую виртуальную карту зарубежного банка — в моём случае так удобнее и выгоднее, чем каждый раз обращаться к посреднику.</p><p>Приветственный бонус — $5 на счёт карты после оформления</p><a class="drive-link" href="https://clck.su/EyKVU" target="_blank" rel="noopener">КЛИКАЙ СЮДА →</a></div>
+          <div class="payment-option"><h4>РАЗОВЫЕ ОПЛАТЫ</h4><h4>Через Oplatym.ru</h4><p>Если хочу протестировать сервис, попробовать его возможности или оформить подписку на один месяц, пользуюсь Oplatym.ru.</p><a class="drive-link file" href="https://clck.su/aspBV" target="_blank" rel="noopener">КЛИКАЙ СЮДА →</a></div>
+          <p class="fineprint">Это варианты из моего личного опыта, а не рейтинг сервисов. Актуальные условия, комиссии и доступные оплаты лучше уточнять на сайтах самих сервисов.</p>
+        </article>
       </section>
+
+
+      <section class="section" aria-labelledby="steps-title">
+        <div class="section-title"><h2 id="steps-title">Как настроить генератор текстур</h2></div>
+        <article class="resource-group guide-copy">
+          <h3>ИНСТРУКЦИЯ</h3>
+          <p>Шаг 1.</p>
+          <p>Создай проект и Назови его. Например «Генератор текстур».</p>
+          <div class="guide-image-grid">
+            <img src="guide-01-projects-menu.png" alt="Скриншот: открыть раздел Проекты в ChatGPT" loading="lazy">
+            <img src="guide-02-project-list.png" alt="Скриншот: создать проект в разделе Проекты" loading="lazy">
+          </div>
+          <div class="guide-image-grid single"><img src="guide-03-create-project.png" alt="Скриншот: форма создания проекта Генератор текстур" loading="lazy"></div>
+
+          <p>Шаг 2.</p>
+          <p>Вставь в «Инструкции проекта» текст с этой страницы.</p>
+          <div class="guide-image-grid single"><img src="guide-04-project-menu.png" alt="Скриншот: меню проекта" loading="lazy"></div>
+          <div class="guide-image-grid single"><img src="guide-05-edit-instructions.png" alt="Скриншот: выбрать редактирование инструкций проекта" loading="lazy"></div>
+          <div class="guide-image-grid">
+            <img src="guide-06-instructions-screen-a.png" alt="Скриншот: настройки проекта и поле для инструкции, часть 1" loading="lazy">
+            <img src="guide-07-instructions-screen-b.png" alt="Скриншот: настройки проекта и поле для инструкции, часть 2" loading="lazy">
+          </div>
+
+          <p>Шаг 3.</p>
+          <p>Можно переходить к созданию текстур</p>
+          <p>Теперь можешь создать новый чат или продолжить в этом же. Если создаешь новые чаты внутри этого Проекта, то никаких файлов/инструкций больше подгружать отдельно в каждый чат НЕ нужно, GPT автоматически найдет все приложенные инструкции и проанализирует их.</p>
+          <div class="guide-image-grid single"><img src="guide-08-created-project.png" alt="Скриншот: созданный проект Генератор текстур" loading="lazy"></div>
+
+          <p>Прикладываешь референс материала и пишешь, какой конкретно материал нужен, например «Мрамор/камень на кухонной столешнице» и т.п.</p>
+          <div class="guide-image-grid single"><img src="guide-09-reference-message.png" alt="Скриншот: пример запроса с референсом материала" loading="lazy"></div>
+          <p>GPT присылает анализ материала и предлагает набор текстур</p>
+          <p>Ты можешь попросить дополнительные текстуры, если каких-то не хватает, например «Также приложи ч/б текстуру пыли/грязи, подходящую данному материалу» и т.д.</p>
+          <p>Либо можешь что-то спросить/уточнить дополнительно.</p>
+          <p>Если все устраивает, отправляешь ему запрос «Генерируй».</p>
+          <div class="guide-image-grid single"><img src="guide-10-generation.png" alt="Скриншот: команда генерации текстур" loading="lazy"></div>
+          <p>GPT подготавливает превью всех текстур (они в низком разрешении) и выдает их картинками, а также собирает готовый архив со всеми картами в разрешении 4К и краткую рекомендательную инструкцию по настройке простого варианта материала.</p>
+          <p>Если прислал только превью без архива, пишем запрос по типу «Собирай Архив с текстурами в разрешении 4К, приложи картинку с инструкцией по сборке материала в 3D макс».</p>
+          <div class="guide-image-grid single"><img src="guide-11-texture-preview.jpg" alt="Пример превью текстур и готового архива" loading="lazy"></div>
+
+          <section class="issue-section" aria-labelledby="issues-title">
+            <div class="guide-block-heading"><span class="block-icon">!</span><div><p class="block-kicker">ПОДСКАЗКИ</p><h3 id="issues-title">ВОЗМОЖНЫЕ ОШИБКИ И ИХ РЕШЕНИЕ</h3></div></div>
+            <div class="issue-list">
+              <article class="issue-card"><div class="issue-number">01</div><div><h4>Появились только превью текстур, но архив не собрался</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Собери архив с текстурами в разрешении 4К и прикрепи его файлом. Также приложи картинку с инструкцией по сборке материала в 3D Max</p></div></article>
+              <article class="issue-card"><div class="issue-number">02</div><div><h4>Текстуры с плохой/нереалистичной детализацией и т.п.</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Переделай текстуры: сейчас детализация выглядит некачественно или нереалистично. Сделай фактуру более чёткой, естественной и физически правдоподобной, не меняя сам материал</p></div></article>
+              <article class="issue-card"><div class="issue-number">03</div><div><h4>Текстуры не похожи на референс</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Переделай текстуры, ориентируясь точнее на референс: сохрани его цвет, рисунок, фактуру и характер материала</p></div></article>
+              <article class="issue-card issue-card-wide"><div class="issue-number">04</div><div><h4>У текстур слишком крупный или слишком мелкий масштаб</h4><div class="guide-image-grid single issue-scale"><img src="guide-12-scale-examples.jpg" alt="Примеры масштаба текстуры: мелкий, средний и крупный" loading="lazy"></div><div class="solution"><strong>РЕШЕНИЕ:</strong><p>- Если масштаб слишком крупный, отправь запрос ➡️Сделай рисунок/фактуру на текстурах мельче, остальные характеристики не меняй.</p><p>- Если слишком мелкий — отправь ➡️ Сделай рисунок/фактуру на текстурах крупнее, остальные характеристики не меняй</p></div></div></article>
+              <article class="issue-card"><div class="issue-number">05</div><div><h4>Ссылка на архив есть, но она не кликабельная</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Прикрепи архив повторно именно как кликабельный файл для скачивания, а не как текстовую ссылку</p></div></article>
+            </div>
+          </section>
+          <aside class="memo-card"><div class="memo-title"><span class="memo-icon">✓</span><h3>*ПАМЯТКА*</h3></div>
+            <p>Помните: GPT иногда может ошибаться, пропускать шаги или не сразу корректно выполнять инструкцию — даже если она очень подробная. Если что-то пошло не так, просто укажите, что именно нужно исправить, и попросите повторить конкретный этап.</p>
+            <p>На 100% следовать каждому шагу НЕ обязательно. Вы можете использовать другие аналогичные формулировки и запросы — главное, чтобы смысл был понятен. Шаги здесь даны как основа и ориентир, чтобы было проще понять принцип работы и получить нужный результат. Удачных генераций!</p>
+          </aside>
+          <p>Bazhena_Maximova&nbsp;&nbsp;&nbsp; @3d_atmospheric</p>
+        </article>
+      </section>
+
     </main>
     <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
   </div>
