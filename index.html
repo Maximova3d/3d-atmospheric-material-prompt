@@ -36,6 +36,7 @@
     h1 { max-width: 700px; margin: 0; font-size: clamp(38px, 7vw, 68px); font-weight: 560; letter-spacing: -.065em; line-height: .99; }
     h1 span { position: relative; z-index: 0; white-space: nowrap; }
     h1 span::after { position: absolute; z-index: -1; right: -.04em; bottom: .04em; left: -.035em; height: .31em; background: var(--ultra); content: ""; }
+    .tool-note a { color:inherit; text-decoration-color:var(--accent, var(--lime)); text-underline-offset:4px; text-decoration-thickness:1px; }
     .intro { max-width: 520px; margin: 24px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
     .prompt-card { margin-top: 34px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--soft); }
     .card-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper); }
@@ -85,6 +86,7 @@
       <p class="eyebrow">Для интерьерных 3D-рендеров</p>
       <h1>Универсальный промт<br>для <span>замены материала</span></h1>
       <p class="intro">Для точной замены материала на любом объекте в кадре с сохранением исходного рендера.</p>
+      <p class="intro tool-note">Я использую Nana Banana Pro в Telegram-боте <a href="https://t.me/syntxaibot" target="_blank" rel="noopener">Syntx Ai</a> или <a href="https://chatgpt.com/plans/plus/" target="_blank" rel="noopener">GPT (тариф Plus)</a>.</p>
 
       <section class="prompt-card" aria-labelledby="prompt-label">
         <div class="card-head">
