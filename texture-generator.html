@@ -32,6 +32,15 @@
     .section-title { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin:0 0 18px; }
     h2 { margin:0; font-size:clamp(22px,4vw,30px); font-weight:570; letter-spacing:-.045em; }
     .section-title p { margin:0; color:var(--muted); font-size:12px; }
+    .section-title h2,.resource-group>h3,.guide-copy>h3,.guide-block-heading h3,.memo-title h3 { text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:.32em; text-underline-offset:-.12em; text-decoration-skip-ink:none; }
+    .copy-instruction { display:inline-flex; align-items:center; justify-content:center; min-height:44px; margin:2px 0 14px; padding:0 17px; border:1.5px solid var(--accent); border-radius:999px; background:#fff; color:var(--ink); font:inherit; font-size:11px; font-weight:700; line-height:1.2; letter-spacing:.04em; text-decoration:none; transition:background .18s,transform .18s; }
+    .copy-instruction:hover { background:var(--accent); transform:translateY(-1px); }
+    .solution { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+    .solution .solution-text { margin:0; }
+    .copy-solution { display:inline-flex; align-items:center; justify-content:center; min-height:34px; padding:0 12px; border:1px solid var(--accent); border-radius:999px; background:#fff; color:var(--ink); font:inherit; font-size:10px; font-weight:700; line-height:1.2; letter-spacing:.05em; cursor:pointer; }
+    .copy-solution:hover { background:var(--accent); }
+    .solution-item { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+    .solution-item+.solution-item { margin-top:12px; padding-top:12px; border-top:1px solid #e5e7dc; }
     .steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
     .step { min-height:205px; padding:18px; border:1px solid var(--line); border-radius:16px; background:var(--soft); }
     .step-num { display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--accent); font-size:12px; font-weight:700; }
@@ -179,6 +188,7 @@
 
           <p>Шаг 2.</p>
           <p>Вставь в «Инструкции проекта» текст с этой страницы.</p>
+          <a class="copy-instruction" href="project-instructions.html">ОТКРЫТЬ ТЕКСТ ИНСТРУКЦИИ ↗</a>
           <div class="guide-image-grid single"><img src="guide-04-project-menu.png" alt="Скриншот: меню проекта" loading="lazy"></div>
           <div class="guide-image-grid single"><img src="guide-05-edit-instructions.png" alt="Скриншот: выбрать редактирование инструкций проекта" loading="lazy"></div>
           <div class="guide-image-grid">
@@ -205,11 +215,11 @@
           <section class="issue-section" aria-labelledby="issues-title">
             <div class="guide-block-heading"><span class="block-icon">!</span><div><p class="block-kicker">ПОДСКАЗКИ</p><h3 id="issues-title">ВОЗМОЖНЫЕ ОШИБКИ И ИХ РЕШЕНИЕ</h3></div></div>
             <div class="issue-list">
-              <article class="issue-card"><div class="issue-number">01</div><div><h4>Появились только превью текстур, но архив не собрался</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Собери архив с текстурами в разрешении 4К и прикрепи его файлом. Также приложи картинку с инструкцией по сборке материала в 3D Max</p></div></article>
-              <article class="issue-card"><div class="issue-number">02</div><div><h4>Текстуры с плохой/нереалистичной детализацией и т.п.</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Переделай текстуры: сейчас детализация выглядит некачественно или нереалистично. Сделай фактуру более чёткой, естественной и физически правдоподобной, не меняя сам материал</p></div></article>
-              <article class="issue-card"><div class="issue-number">03</div><div><h4>Текстуры не похожи на референс</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Переделай текстуры, ориентируясь точнее на референс: сохрани его цвет, рисунок, фактуру и характер материала</p></div></article>
-              <article class="issue-card issue-card-wide"><div class="issue-number">04</div><div><h4>У текстур слишком крупный или слишком мелкий масштаб</h4><div class="guide-image-grid single issue-scale"><img src="guide-12-scale-examples.jpg" alt="Примеры масштаба текстуры: мелкий, средний и крупный" loading="lazy"></div><div class="solution"><strong>РЕШЕНИЕ:</strong><p>- Если масштаб слишком крупный, отправь запрос ➡️Сделай рисунок/фактуру на текстурах мельче, остальные характеристики не меняй.</p><p>- Если слишком мелкий — отправь ➡️ Сделай рисунок/фактуру на текстурах крупнее, остальные характеристики не меняй</p></div></div></article>
-              <article class="issue-card"><div class="issue-number">05</div><div><h4>Ссылка на архив есть, но она не кликабельная</h4><p class="solution"><strong>РЕШЕНИЕ:</strong> отправь запрос ➡️ Прикрепи архив повторно именно как кликабельный файл для скачивания, а не как текстовую ссылку</p></div></article>
+              <article class="issue-card"><div class="issue-number">01</div><div><h4>Появились только превью текстур, но архив не собрался</h4><div class="solution"><strong>РЕШЕНИЕ:</strong><p class="solution-text">Собери архив с текстурами в разрешении 4К и прикрепи его файлом. Также приложи картинку с инструкцией по сборке материала в 3D Max</p><button class="copy-solution" type="button" data-copy="Собери архив с текстурами в разрешении 4К и прикрепи его файлом. Также приложи картинку с инструкцией по сборке материала в 3D Max">КОПИРОВАТЬ ЗАПРОС</button></div></div></article>
+              <article class="issue-card"><div class="issue-number">02</div><div><h4>Текстуры с плохой/нереалистичной детализацией и т.п.</h4><div class="solution"><strong>РЕШЕНИЕ:</strong><p class="solution-text">Переделай текстуры: сейчас детализация выглядит некачественно или нереалистично. Сделай фактуру более чёткой, естественной и физически правдоподобной, не меняя сам материал</p><button class="copy-solution" type="button" data-copy="Переделай текстуры: сейчас детализация выглядит некачественно или нереалистично. Сделай фактуру более чёткой, естественной и физически правдоподобной, не меняя сам материал">КОПИРОВАТЬ ЗАПРОС</button></div></div></article>
+              <article class="issue-card"><div class="issue-number">03</div><div><h4>Текстуры не похожи на референс</h4><div class="solution"><strong>РЕШЕНИЕ:</strong><p class="solution-text">Переделай текстуры, ориентируясь точнее на референс: сохрани его цвет, рисунок, фактуру и характер материала</p><button class="copy-solution" type="button" data-copy="Переделай текстуры, ориентируясь точнее на референс: сохрани его цвет, рисунок, фактуру и характер материала">КОПИРОВАТЬ ЗАПРОС</button></div></div></article>
+              <article class="issue-card issue-card-wide"><div class="issue-number">04</div><div><h4>У текстур слишком крупный или слишком мелкий масштаб</h4><div class="guide-image-grid single issue-scale"><img src="guide-12-scale-examples.jpg" alt="Примеры масштаба текстуры: мелкий, средний и крупный" loading="lazy"></div><div class="solution"><strong>РЕШЕНИЕ:</strong><div class="solution-item"><p class="solution-text">Если масштаб слишком крупный:</p><p class="solution-text">Сделай рисунок/фактуру на текстурах мельче, остальные характеристики не меняй.</p><button class="copy-solution" type="button" data-copy="Сделай рисунок/фактуру на текстурах мельче, остальные характеристики не меняй.">КОПИРОВАТЬ ЗАПРОС</button></div><div class="solution-item"><p class="solution-text">Если масштаб слишком мелкий:</p><p class="solution-text">Сделай рисунок/фактуру на текстурах крупнее, остальные характеристики не меняй</p><button class="copy-solution" type="button" data-copy="Сделай рисунок/фактуру на текстурах крупнее, остальные характеристики не меняй">КОПИРОВАТЬ ЗАПРОС</button></div></div></div></article>
+              <article class="issue-card"><div class="issue-number">05</div><div><h4>Ссылка на архив есть, но она не кликабельная</h4><div class="solution"><strong>РЕШЕНИЕ:</strong><p class="solution-text">Прикрепи архив повторно именно как кликабельный файл для скачивания, а не как текстовую ссылку</p><button class="copy-solution" type="button" data-copy="Прикрепи архив повторно именно как кликабельный файл для скачивания, а не как текстовую ссылку">КОПИРОВАТЬ ЗАПРОС</button></div></div></article>
             </div>
           </section>
           <aside class="memo-card"><div class="memo-title"><span class="memo-icon">✓</span><h3>*ПАМЯТКА*</h3></div>
@@ -223,5 +233,13 @@
     </main>
     <footer><span>3D ATMOSPHERIC</span><span>© BAZHENA MAXIMOVA</span></footer>
   </div>
+  <script>
+    document.querySelectorAll('.copy-solution').forEach(button=>button.addEventListener('click',async()=>{
+      const original=button.textContent;const text=button.dataset.copy;
+      try { await navigator.clipboard.writeText(text); }
+      catch { const field=document.createElement('textarea');field.value=text;field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();document.execCommand('copy');field.remove(); }
+      button.textContent='СКОПИРОВАНО ✓';window.setTimeout(()=>button.textContent=original,1800);
+    }));
+  </script>
 </body>
 </html>
