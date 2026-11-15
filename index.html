@@ -36,7 +36,10 @@
     h1 { max-width: 700px; margin: 0; font-size: clamp(38px, 7vw, 68px); font-weight: 560; letter-spacing: -.065em; line-height: .99; }
     h1 span { position: relative; z-index: 0; white-space: nowrap; }
     h1 span::after { position: absolute; z-index: -1; right: -.04em; bottom: .04em; left: -.035em; height: .31em; background: var(--ultra); content: ""; }
-    .tool-note a { color:inherit; text-decoration-color:var(--accent, var(--lime)); text-underline-offset:4px; text-decoration-thickness:1px; }
+    .tool-note a { display:inline-flex; align-items:center; gap:.28em; margin:.08em .12em; padding:.12em .58em; border:1px solid var(--accent, var(--lime)); border-radius:999px; color:inherit; text-decoration:none; font-weight:650; white-space:nowrap; transition:background .18s ease,transform .18s ease; }
+    .tool-note a::after { content:"↗"; font-size:.76em; }
+    .tool-note a:hover { background:var(--accent, var(--lime)); transform:translateY(-1px); }
+    .tool-note a:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
     .intro { max-width: 520px; margin: 24px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
     .prompt-card { margin-top: 34px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--soft); }
     .card-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper); }
