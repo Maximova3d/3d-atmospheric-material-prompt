@@ -44,19 +44,27 @@
     {id:'page-terms',title:'Понятные условия',note:'Стоимость, этапы работы и подготовка технического задания.',sections:['#price','#process','#brief']},
     {id:'page-contact',title:'Обсудим проект?',note:'Свяжитесь со мной удобным способом.',sections:['#contacts']}
   ];
-  const views=pageSpecs.map((spec,i)=>{const view=document.createElement('div');view.className='page-view';view.id=spec.id;view.hidden=i!==0;const heading=document.createElement('div');heading.className='view-heading';heading.innerHTML=`<p class="eyebrow">${String(i+1).padStart(2,'0')} / 04</p><h2>${spec.title}</h2><p>${spec.note}</p>`;view.append(heading);spec.sections.forEach(sel=>{const section=main.querySelector(sel);if(section)view.append(section)});return view});
-  views.forEach(view=>view.querySelectorAll(':scope > section:not(.hero):not(#contacts)').forEach(section=>{
+  const allSections=[...main.querySelectorAll(':scope > section')];
+  const heading=document.createElement('div');heading.className='view-heading';main.prepend(heading);
+  pageSpecs.forEach((spec,i)=>spec.sections.forEach(selector=>{const section=main.querySelector(selector);if(section)section.dataset.page=spec.id}));
+  ['about','works','atmosphere','reviews','price','process','brief'].forEach(id=>{
+    const section=main.querySelector('#'+id);if(!section)return;
     const head=section.querySelector('.section-head');if(!head)return;
-    const title=head.querySelector('h2')?.innerText||'Раздел';const note=head.querySelector('p')?.innerText||'';
-    const details=document.createElement('details');details.className='info-accordion';details.open=section.id==='works'||section.id==='price';
-    const summary=document.createElement('summary');summary.innerHTML=`<h3 class=\"accordion-title\">${title}</h3><p class=\"accordion-note\">${note}</p>`;details.append(summary);
-    [...section.children].filter(child=>child!==head).forEach(child=>details.append(child));section.replaceChildren(details);
-  }));
-  main.append(...views);
+    const details=document.createElement('details');details.className='info-accordion';details.open=id==='works'||id==='price';
+    const summary=document.createElement('summary');summary.innerHTML=`<h3 class="accordion-title">${head.querySelector('h2')?.innerText||'Раздел'}</h3><p class="accordion-note">${head.querySelector('p')?.innerText||''}</p>`;
+    details.append(summary);[...section.children].filter(child=>child!==head).forEach(child=>details.append(child));section.replaceChildren(details);
+  });
   const navLinks=[...document.querySelectorAll('header nav a')];
-  function showPage(id,updateHash=true){const target=pageSpecs.some(p=>p.id===id)?id:'page-about';views.forEach(v=>{v.hidden=v.id!==target});navLinks.forEach(a=>{const active=a.getAttribute('href')==='#'+target;a.toggleAttribute('aria-current',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});if(updateHash)history.replaceState(null,'','#'+target);window.scrollTo({top:0,behavior:'smooth'});}
+  function showPage(id,updateHash=true){
+    const spec=pageSpecs.find(p=>p.id===id)||pageSpecs[0];
+    heading.innerHTML=`<p class="eyebrow">${String(pageSpecs.indexOf(spec)+1).padStart(2,'0')} / 04</p><h2>${spec.title}</h2><p>${spec.note}</p>`;
+    allSections.forEach(section=>section.hidden=section.dataset.page!==spec.id);
+    navLinks.forEach(a=>{const active=a.getAttribute('href')==='#'+spec.id;if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    if(updateHash)history.replaceState(null,'','#'+spec.id);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
   navLinks.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.hash.slice(1))}));
-  if(location.hash.startsWith('#page-'))showPage(location.hash.slice(1),false);else showPage('page-about',false);
+  showPage(location.hash.startsWith('#page-')?location.hash.slice(1):'page-about',false);
   window.addEventListener('popstate',()=>showPage(location.hash.slice(1),false));
   document.querySelectorAll('.shot img').forEach(img=>img.addEventListener('click',()=>{big.src=img.src;big.alt=img.alt;box.classList.add('open')}));
   box.querySelector('button').addEventListener('click',()=>box.classList.remove('open'));
