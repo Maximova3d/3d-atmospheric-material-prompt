@@ -26,9 +26,9 @@
     h1 { max-width:700px; margin:0; font-size:clamp(38px,7vw,68px); font-weight:560; letter-spacing:-.065em; line-height:.99; }
     h1 span { position:relative; z-index:0; }
     h1 span::after { position:absolute; z-index:-1; right:-.04em; bottom:.04em; left:-.035em; height:.31em; background:var(--accent); content:""; }
-    .tool-note a { display:inline-flex; align-items:center; gap:.28em; margin:.08em .12em; padding:.12em .58em; border:1px solid var(--accent, var(--lime)); border-radius:999px; color:inherit; text-decoration:none; font-weight:650; white-space:nowrap; transition:background .18s ease,transform .18s ease; }
-    .tool-note a::after { content:"↗"; font-size:.76em; }
-    .tool-note a:hover { background:var(--accent, var(--lime)); transform:translateY(-1px); }
+    .tool-note a { display:inline-flex; align-items:center; gap:.35em; margin:.2em .14em; padding:.3em .78em; border:2px solid var(--accent, var(--lime)); border-radius:999px; background:var(--accent, var(--lime)); color:var(--ink); text-decoration:none; font-weight:700; white-space:nowrap; box-shadow:0 2px 0 rgba(23,24,19,.12); transition:filter .18s ease,transform .18s ease; }
+    .tool-note a::after { content:"↗"; font-size:.82em; }
+    .tool-note a:hover { filter:brightness(.95); transform:translateY(-1px); }
     .tool-note a:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
     .intro { max-width:620px; margin:24px 0 0; color:var(--muted); font-size:16px; line-height:1.65; }
     .subintro { margin-top:10px; }
