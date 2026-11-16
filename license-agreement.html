@@ -45,7 +45,7 @@
     .section ul { margin:9px 0 0; padding-left:21px; }
     .section li+li { margin-top:5px; }
     .note { margin-top:28px; padding:17px 20px; border-left:3px solid var(--orange); border-radius:0 15px 15px 0; background:var(--soft); color:var(--muted); font-size:13px; line-height:1.65; }
-    .document a { color:var(--ink); text-decoration-color:var(--orange); text-underline-offset:3px; font-weight:650; }
+    .contact-button { display:inline-flex; align-items:center; gap:12px; margin-top:14px; padding:12px 18px; border:1.5px solid var(--orange); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; transition:background .2s ease, transform .2s ease; }    .contact-button:hover { background:#fff7f2; transform:translateY(-1px); }    .contact-button:focus-visible { outline:3px solid var(--lime); outline-offset:3px; }    .contact-button .mail-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--orange); color:#fff; font-size:17px; }    .contact-button .contact-copy { display:flex; flex-direction:column; gap:2px; }    .contact-button strong { font-size:12px; letter-spacing:.08em; text-transform:uppercase; }    .contact-button small { color:var(--muted); font-size:13px; }    .contact-button .arrow { margin-left:4px; color:var(--orange); font-size:18px; }
     .footer { display:flex; justify-content:space-between; gap:16px; margin-top:26px; color:var(--muted); font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
     .footer a { color:inherit; text-decoration-color:var(--orange); text-underline-offset:4px; }
     @media(max-width:640px) {
@@ -150,7 +150,7 @@
         <section class="section">
           <h3 class="section-title"><span class="num">09</span><span>Применимое право и заключительные положения</span></h3>
           <p>К Соглашению применяется законодательство Российской Федерации, включая положения части четвёртой Гражданского кодекса РФ о лицензионных договорах. Если отдельное положение Соглашения будет признано недействительным, остальные положения сохраняют силу.</p>
-          <p>По вопросам, связанным с условиями лицензии, можно написать Лицензиару на почту <a href="mailto:bazhenamaks@gmail.com">bazhenamaks@gmail.com</a>.</p>
+          <p>По вопросам, связанным с условиями лицензии, можно написать Лицензиару:</p><a class="contact-button" href="mailto:bazhenamaks@gmail.com" aria-label="Написать на почту bazhenamaks@gmail.com"><span class="mail-icon" aria-hidden="true">✉</span><span class="contact-copy"><strong>Написать на почту</strong><small>bazhenamaks@gmail.com</small></span><span class="arrow" aria-hidden="true">↗</span></a>
         </section>
       </article>
       <aside class="note">Лицензия касается только использования модели в пределах, указанных выше. Права на сами модели и исходные файлы остаются у их авторов и/или правообладателей.</aside>
